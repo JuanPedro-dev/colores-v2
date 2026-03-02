@@ -48,7 +48,8 @@ function applyCustomColors() {
       
       // Update text content and data-text for text-to-speech
       const textContent = customConfig.content || defaultConfig.circles[index].content;
-      // circle.innerHTML = `<span>${textContent}</span>`;
+      
+      // circle.textContent = textContent;
       circle.setAttribute("data-text", textContent);
     }
   });
@@ -103,3 +104,73 @@ function playFeedbackBeep() {
     alert("Audio no soportado o bloqueado por el navegador.");
   }
 }
+
+// Config Page Logic
+document.addEventListener("DOMContentLoaded", () => {
+  const saveBtn = document.getElementById('save-btn');
+  if (!saveBtn) return; // Ensure we are on config.html
+
+  const bodyBgInput = document.getElementById('body-bg');
+  
+  // Circle inputs
+  const bgInputs = [
+      document.getElementById('bg-circle-top-left'),
+      document.getElementById('bg-circle-top-right'),
+      document.getElementById('bg-circle-bottom-left'),
+      document.getElementById('bg-circle-bottom-right')
+  ];
+
+  const contentInputs = [
+      document.getElementById('content-circle-top-left'),
+      document.getElementById('content-circle-top-right'),
+      document.getElementById('content-circle-bottom-left'),
+      document.getElementById('content-circle-bottom-right')
+  ];
+
+  const defaultConfig = {
+      bodyBg: '#000000',
+      circles: [
+          { bg: '#ff3b3b', text: '#000000', content: 'Hola' },
+          { bg: '#00bfff', text: '#000000', content: 'Bienvenido' },
+          { bg: '#39ff14', text: '#000000', content: '¿Cómo estás?' },
+          { bg: '#ffd700', text: '#000000', content: 'Vamos' }
+      ]
+  };
+  
+  let savedConfig = JSON.parse(localStorage.getItem('appColors')) || defaultConfig;
+
+  // Set input values to saved values
+  if (bodyBgInput) bodyBgInput.value = savedConfig.bodyBg || defaultConfig.bodyBg;
+  
+  const savedCircles = savedConfig.circles || defaultConfig.circles;
+  
+  bgInputs.forEach((input, index) => {
+      if (input && savedCircles[index]) input.value = savedCircles[index].bg;
+  });
+
+  contentInputs.forEach((input, index) => {
+      if (input && savedCircles[index]) input.value = savedCircles[index].content || defaultConfig.circles[index].content;
+  });
+
+  saveBtn.addEventListener('click', () => {
+      const configToSave = {
+          bodyBg: bodyBgInput ? bodyBgInput.value : defaultConfig.bodyBg,
+          circles: bgInputs.map((bgInput, index) => ({
+              bg: bgInput ? bgInput.value : defaultConfig.circles[index].bg,
+          }))
+      };
+      
+      localStorage.setItem('appColors', JSON.stringify(configToSave));
+      
+      saveBtn.textContent = '¡Guardado!';
+      saveBtn.classList.add('success');
+      
+      setTimeout(() => {
+          saveBtn.textContent = 'Guardar Colores';
+          saveBtn.classList.remove('success');
+      }, 2000);
+      
+      // Update preview immediately
+      applyCustomColors();
+  });
+});
