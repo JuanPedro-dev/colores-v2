@@ -157,6 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
           bodyBg: bodyBgInput ? bodyBgInput.value : defaultConfig.bodyBg,
           circles: bgInputs.map((bgInput, index) => ({
               bg: bgInput ? bgInput.value : defaultConfig.circles[index].bg,
+              text: savedCircles[index].text || '#000000', // preserving old text color
+              content: contentInputs[index] ? contentInputs[index].value : defaultConfig.circles[index].content
           }))
       };
       
