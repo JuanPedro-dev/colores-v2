@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Colores</title>
+    <link rel="stylesheet" href="/styles/config.css">
+</head>
+
+<body>
+    <div class="config-container">
+        <h1>Configuración</h1>
+
+        <div class="color-option mb-4">
+            <label for="body-bg">Fondo de la Pantalla</label>
+            <input type="color" id="body-bg" value="#000000">
+        </div>
+
+        <div class="color-options">
+            <div class="color-option">
+                <strong>Arriba Izquierda</strong>
+                <div class="picker-group">
+                    <label for="bg-circle-top-left">Fondo</label>
+                    <input type="color" id="bg-circle-top-left" value="#ff3b3b">
+                </div>
+                <div class="picker-group">
+                    <label for="text-circle-top-left">Color Texto</label>
+                    <input type="color" id="text-circle-top-left" value="#000000">
+                </div>
+                <div class="picker-group">
+                    <label for="content-circle-top-left">Texto</label>
+                    <input type="text" id="content-circle-top-left" class="text-input" value="Hola">
+                </div>
+            </div>
+
+            <div class="color-option">
+                <strong>Arriba Derecha</strong>
+                <div class="picker-group">
+                    <label for="bg-circle-top-right">Fondo</label>
+                    <input type="color" id="bg-circle-top-right" value="#00bfff">
+                </div>
+                <div class="picker-group">
+                    <label for="text-circle-top-right">Color Texto</label>
+                    <input type="color" id="text-circle-top-right" value="#000000">
+                </div>
+                <div class="picker-group">
+                    <label for="content-circle-top-right">Texto</label>
+                    <input type="text" id="content-circle-top-right" class="text-input" value="Bienvenido">
+                </div>
+            </div>
+
+            <div class="color-option">
+                <strong>Abajo Izquierda</strong>
+                <div class="picker-group">
+                    <label for="bg-circle-bottom-left">Fondo</label>
+                    <input type="color" id="bg-circle-bottom-left" value="#39ff14">
+                </div>
+                <div class="picker-group">
+                    <label for="text-circle-bottom-left">Color Texto</label>
+                    <input type="color" id="text-circle-bottom-left" value="#000000">
+                </div>
+                <div class="picker-group">
+                    <label for="content-circle-bottom-left">Texto</label>
+                    <input type="text" id="content-circle-bottom-left" class="text-input" value="Programación">
+                </div>
+            </div>
+
+            <div class="color-option">
+                <strong>Abajo Derecha</strong>
+                <div class="picker-group">
+                    <label for="bg-circle-bottom-right">Fondo</label>
+                    <input type="color" id="bg-circle-bottom-right" value="#ffd700">
+                </div>
+                <div class="picker-group">
+                    <label for="text-circle-bottom-right">Color Texto</label>
+                    <input type="color" id="text-circle-bottom-right" value="#000000">
+                </div>
+                <div class="picker-group">
+                    <label for="content-circle-bottom-right">Texto</label>
+                    <input type="text" id="content-circle-bottom-right" class="text-input" value="Vamos">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button id="save-btn" class="btn">Guardar Colores</button>
+            <a href="index.html" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+</body>
+
+</html>
