@@ -44,7 +44,7 @@ function applyCustomColors() {
       // Background and Text colors
       circle.style.backgroundColor = customConfig.bg;
       circle.style.color = customConfig.text;
-      circle.style.boxShadow = `0 0 25px 5px ${hex2rgba(customConfig.bg, 0.6)}`;
+      // circle.style.boxShadow = `0 0 25px 5px ${hex2rgba(customConfig.bg, 0.6)}`;
       
       // Update text content and data-text for text-to-speech
       const textContent = customConfig.content || defaultConfig.circles[index].content;
